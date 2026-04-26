@@ -20,6 +20,20 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* FLOAT ANIMATION */
+@keyframes floatTitle {
+    0% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-6px) rotateX(6deg); }
+    100% { transform: translateY(0px) rotateX(0deg); }
+}
+
+/* GLOW PULSE */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(10,122,74,0.2); }
+    50% { text-shadow: 0 0 25px rgba(10,122,74,0.5); }
+    100% { text-shadow: 0 0 10px rgba(10,122,74,0.2); }
+}
+
 .fade {
     animation: fadeUp 1s ease forwards;
 }
@@ -38,9 +52,21 @@ body {
     border-bottom: 1px solid rgba(11, 61, 46, 0.1);
 }
 
+/* ===== 3D TITLE ===== */
 .logo .title {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
+
+    /* 3D EFFECT */
+    color: #0b3d2e;
+    text-shadow:
+        1px 1px 0px #0a7a4a,
+        2px 2px 0px #085c38,
+        3px 3px 12px rgba(0,0,0,0.15);
+
+    animation: floatTitle 3s ease-in-out infinite,
+               glow 3s ease-in-out infinite;
+    transform-style: preserve-3d;
 }
 
 .logo .subtitle {
@@ -65,7 +91,7 @@ body {
     color: #0a7a4a;
 }
 
-/* ===== WHATSAPP NAV BUTTON ===== */
+/* WHATSAPP NAV */
 .nav-whatsapp {
     background: #25D366;
     color: white;
@@ -81,7 +107,7 @@ body {
     background: #1ebe5d;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -105,6 +131,11 @@ body {
     margin-top: 20px;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 /* GLASS CARD */
@@ -186,8 +217,8 @@ footer {
 <!-- NAVBAR -->
 <header class="navbar fade">
     <div class="logo">
-        <div class="title">Sunetra Halankar</div>
-        <div class="subtitle">Wealth Manager</div>
+        <div class="title">Sunetra Halankar | Wealth Manager</div>
+        <div class="subtitle">Personal Wealth Advisory</div>
     </div>
 
     <nav class="nav-links">
@@ -196,7 +227,7 @@ footer {
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
 
-        <!-- WHATSAPP BUTTON ADDED IN NAVBAR -->
+        <!-- WhatsApp instead of Book Consultation -->
         <a class="nav-whatsapp"
            href="https://wa.me/919137312517"
            target="_blank">
