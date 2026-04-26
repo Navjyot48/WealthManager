@@ -11,49 +11,60 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #e9fff3, #d6f7e3);
     color: #0b3d2e;
+    scroll-behavior: smooth;
 }
 
-/* NAVBAR */
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade {
+    animation: fadeUp 1s ease forwards;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 16px 40px;
-
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(14px);
-
     border-bottom: 1px solid rgba(11, 61, 46, 0.1);
 }
 
 .logo .title {
     font-size: 18px;
     font-weight: 600;
-    color: #0b3d2e;
 }
 
 .logo .subtitle {
     font-size: 12px;
     opacity: 0.7;
-    color: #145a3a;
 }
 
 /* NAV LINKS */
 .nav-links {
     display: flex;
-    align-items: center;
     gap: 22px;
+    align-items: center;
 }
 
 .nav-links a {
-    color: #145a3a;
     text-decoration: none;
-    font-size: 14px;
+    color: #145a3a;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -64,27 +75,25 @@ body {
 .cta {
     background: #0a7a4a;
     color: white;
-    border: none;
     padding: 8px 14px;
     border-radius: 8px;
-    font-weight: 600;
+    border: none;
     cursor: pointer;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
     text-align: center;
-    padding: 90px 20px;
+    padding: 100px 20px;
+    animation: fadeUp 1s ease;
 }
 
 .hero h1 {
-    font-size: 42px;
-    color: #0b3d2e;
+    font-size: 48px;
 }
 
 .hero p {
-    opacity: 0.85;
-    color: #145a3a;
+    opacity: 0.8;
 }
 
 /* BUTTON */
@@ -94,30 +103,16 @@ body {
     padding: 12px 25px;
     border: none;
     margin-top: 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    border-radius: 8px;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp-btn {
-    display: inline-block;
-    margin-top: 15px;
-    background: #25D366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
     transition: 0.3s;
 }
 
-.whatsapp-btn:hover {
+.btn:hover {
     transform: scale(1.05);
-    background: #1ebe5d;
 }
 
-/* GLASS CARD */
+/* ===== GLASS CARD ===== */
 .glass {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
@@ -125,6 +120,13 @@ body {
     padding: 25px;
     margin: 20px;
     border: 1px solid rgba(10, 122, 74, 0.15);
+    transition: 0.4s;
+    animation: fadeUp 1s ease;
+}
+
+.glass:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 /* SECTIONS */
@@ -148,11 +150,40 @@ input, select {
     border: 1px solid rgba(0,0,0,0.1);
 }
 
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeUp 1s ease;
+    z-index: 999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+.floating-whatsapp a {
+    color: white;
+    font-size: 26px;
+    text-decoration: none;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 </style>
 </head>
@@ -160,7 +191,7 @@ footer {
 <body>
 
 <!-- NAVBAR -->
-<header class="navbar">
+<header class="navbar fade">
     <div class="logo">
         <div class="title">Sunetra Halankar</div>
         <div class="subtitle">Wealth Manager</div>
@@ -176,10 +207,9 @@ footer {
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade">
     <h1>Sunetra Halankar</h1>
     <p>Wealth Manager</p>
-
     <button class="btn">Start Your Wealth Journey</button>
 </section>
 
@@ -199,20 +229,9 @@ footer {
     <h2>Services</h2>
 
     <div class="cards">
-        <div class="glass">
-            <h3>Portfolio Management</h3>
-            <p>Personalized investment strategies</p>
-        </div>
-
-        <div class="glass">
-            <h3>Financial Planning</h3>
-            <p>Structured long-term wealth growth</p>
-        </div>
-
-        <div class="glass">
-            <h3>Tax Optimization</h3>
-            <p>Smart tax-saving strategies</p>
-        </div>
+        <div class="glass"><h3>Portfolio Management</h3></div>
+        <div class="glass"><h3>Financial Planning</h3></div>
+        <div class="glass"><h3>Tax Optimization</h3></div>
     </div>
 </section>
 
@@ -221,20 +240,9 @@ footer {
     <h2>Investment Products</h2>
 
     <div class="cards">
-        <div class="glass">
-            <h3>Equity</h3>
-            <p>High growth opportunities</p>
-        </div>
-
-        <div class="glass">
-            <h3>Mutual Funds</h3>
-            <p>Professionally managed portfolios</p>
-        </div>
-
-        <div class="glass">
-            <h3>Fixed Income</h3>
-            <p>Stable low-risk returns</p>
-        </div>
+        <div class="glass"><h3>Equity</h3></div>
+        <div class="glass"><h3>Mutual Funds</h3></div>
+        <div class="glass"><h3>Fixed Income</h3></div>
     </div>
 </section>
 
@@ -245,7 +253,6 @@ footer {
 
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Your Email"><br>
-
         <input type="tel" placeholder="Contact Number"><br>
 
         <select>
@@ -255,16 +262,22 @@ footer {
 
         <button class="btn">Submit</button>
 
-        <!-- WHATSAPP BUTTON -->
-        <br>
-        <a class="whatsapp-btn"
+        <br><br>
+
+        <!-- Instant WhatsApp Button -->
+        <a class="btn"
+           style="background:#25D366"
            href="https://wa.me/919137312517"
            target="_blank">
            💬 Instant WhatsApp Connect
         </a>
-
     </div>
 </section>
+
+<!-- FLOATING WHATSAPP BUBBLE -->
+<div class="floating-whatsapp">
+    <a href="https://wa.me/919999999999" target="_blank">💬</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
