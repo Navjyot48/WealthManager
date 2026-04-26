@@ -54,7 +54,6 @@ body {
     color: #145a3a;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.2s;
 }
 
 .nav-links a:hover {
@@ -72,10 +71,6 @@ body {
     cursor: pointer;
 }
 
-.cta:hover {
-    transform: scale(1.05);
-}
-
 /* HERO */
 .hero {
     text-align: center;
@@ -84,7 +79,6 @@ body {
 
 .hero h1 {
     font-size: 42px;
-    margin-bottom: 10px;
     color: #0b3d2e;
 }
 
@@ -103,12 +97,24 @@ body {
     cursor: pointer;
     font-weight: bold;
     border-radius: 8px;
-    transition: 0.2s;
 }
 
-.btn:hover {
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
     transform: scale(1.05);
-    background: #0c8f58;
+    background: #1ebe5d;
 }
 
 /* GLASS CARD */
@@ -119,12 +125,6 @@ body {
     padding: 25px;
     margin: 20px;
     border: 1px solid rgba(10, 122, 74, 0.15);
-    transition: 0.3s;
-}
-
-.glass:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* SECTIONS */
@@ -153,7 +153,6 @@ footer {
     text-align: center;
     padding: 20px;
     opacity: 0.75;
-    color: #0b3d2e;
 }
 </style>
 </head>
@@ -247,7 +246,6 @@ footer {
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Your Email"><br>
 
-        <!-- ✔ CONTACT NUMBER ADDED -->
         <input type="tel" placeholder="Contact Number"><br>
 
         <select>
@@ -256,6 +254,15 @@ footer {
         </select><br>
 
         <button class="btn">Submit</button>
+
+        <!-- WHATSAPP BUTTON -->
+        <br>
+        <a class="whatsapp-btn"
+           href="https://wa.me/919999999999"
+           target="_blank">
+           💬 Instant WhatsApp Connect
+        </a>
+
     </div>
 </section>
 
