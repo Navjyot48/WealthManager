@@ -9,67 +9,78 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #f4f6f9;
+    background: linear-gradient(135deg, #0a2540, #1c3d5a);
+    color: white;
 }
 
 /* NAVBAR */
 header {
-    background: #0a2540;
-    color: white;
-    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
+    padding: 20px 40px;
 }
 
 nav a {
     color: white;
     margin-left: 20px;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffb400;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero img {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+/* GLASS CARD */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glass:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* BUTTON */
+.btn {
+    background: #ffb400;
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    margin-top: 20px;
     cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 /* SECTIONS */
 section {
     padding: 60px 20px;
     text-align: center;
-}
-
-/* HERO */
-.hero {
-    background: linear-gradient(to right, #0a2540, #1c3d5a);
-    color: white;
-    padding: 80px 20px;
-}
-
-.hero img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    margin-top: 20px;
-}
-
-.hero h1 {
-    font-size: 40px;
-    margin: 15px 0 5px;
-}
-
-.hero p {
-    font-size: 18px;
-}
-
-.btn {
-    background: #ffb400;
-    padding: 12px 25px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* ABOUT */
-.about {
-    max-width: 700px;
-    margin: auto;
 }
 
 /* CARDS */
@@ -79,36 +90,38 @@ section {
     justify-content: center;
 }
 
-.card {
-    background: white;
-    width: 260px;
-    margin: 15px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* CONTACT */
-form input, form select {
-    width: 250px;
+/* INPUTS */
+input, select {
     padding: 10px;
     margin: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* FADE ANIMATION */
+.fade-in {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
 /* FOOTER */
 footer {
-    background: #0a2540;
-    color: white;
     text-align: center;
     padding: 20px;
+    opacity: 0.8;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h2>Nuvama Wealth</h2>
+    <h2>Sunetra Halankar | Wealth Manager, NUVAMA</h2>
     <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -118,25 +131,24 @@ footer {
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-in">
     <h1>Sunetra Halankar</h1>
     <h3>Nuvama Wealth Manager</h3>
-    <p>Helping you grow, manage, and protect your wealth with expert guidance.</p>
-    
-    <img src="https://via.placeholder.com/200" alt="Sunetra Halankar">
+    <p>Building wealth. Securing futures. Creating financial confidence.</p>
+
+    <img src="https://via.placeholder.com/150">
 
     <br>
     <button class="btn">Book Free Consultation</button>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-    <h2>About Me</h2>
-    <div class="about">
+<section id="about" class="fade-in">
+    <div class="glass">
+        <h2>About Me</h2>
         <p>
-            I am a dedicated wealth manager at Nuvama, specializing in personalized 
-            financial planning, portfolio management, and long-term investment strategies. 
-            My goal is to help clients achieve financial security and sustainable growth.
+            I specialize in wealth creation strategies, portfolio management, 
+            and long-term financial planning tailored to your goals.
         </p>
     </div>
 </section>
@@ -145,19 +157,19 @@ footer {
 <section id="services">
     <h2>My Services</h2>
     <div class="cards">
-        <div class="card">
+        <div class="glass">
             <h3>Portfolio Management</h3>
-            <p>Customized investment strategies for your goals.</p>
+            <p>Custom investment strategies</p>
         </div>
 
-        <div class="card">
+        <div class="glass">
             <h3>Financial Planning</h3>
-            <p>Plan your future with structured financial advice.</p>
+            <p>Structured wealth building</p>
         </div>
 
-        <div class="card">
+        <div class="glass">
             <h3>Tax Optimization</h3>
-            <p>Maximize returns while minimizing tax liabilities.</p>
+            <p>Maximize returns legally</p>
         </div>
     </div>
 </section>
@@ -166,27 +178,27 @@ footer {
 <section id="products">
     <h2>Investment Products</h2>
     <div class="cards">
-        <div class="card">
+        <div class="glass">
             <h3>Equity</h3>
-            <p>High-growth investment opportunities</p>
+            <p>High-growth investments</p>
         </div>
 
-        <div class="card">
+        <div class="glass">
             <h3>Mutual Funds</h3>
-            <p>Diversified and professionally managed funds</p>
+            <p>Diversified portfolios</p>
         </div>
 
-        <div class="card">
+        <div class="glass">
             <h3>Fixed Income</h3>
-            <p>Stable and low-risk returns</p>
+            <p>Stable returns</p>
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Get in Touch</h2>
-    <form>
+    <div class="glass">
+        <h2>Get in Touch</h2>
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Your Email"><br>
         <select>
@@ -194,7 +206,7 @@ footer {
             <option>Retirement Planning</option>
         </select><br>
         <button class="btn">Submit</button>
-    </form>
+    </div>
 </section>
 
 <footer>
