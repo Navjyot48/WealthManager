@@ -13,28 +13,71 @@ body {
     color: white;
 }
 
-/* NAVBAR */
-header {
+/* ===== PREMIUM NAVBAR ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
+    align-items: center;
+
+    padding: 16px 40px;
+
+    background: rgba(10, 37, 64, 0.75);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-nav a {
-    color: white;
-    margin-left: 20px;
+.logo .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.logo .subtitle {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
-    transition: 0.3s;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-nav a:hover {
-    color: #ffb400;
+.nav-links a:hover {
+    color: #ffffff;
 }
 
-/* HERO */
+/* CTA */
+.cta {
+    background: #ffb400;
+    color: #000;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cta:hover {
+    transform: scale(1.05);
+}
+
+/* ===== HERO ===== */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 90px 20px;
 }
 
 .hero img {
@@ -44,20 +87,13 @@ nav a:hover {
     border: 3px solid rgba(255,255,255,0.3);
 }
 
-/* GLASS CARD */
-.glass {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    margin: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-.glass:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+.hero p {
+    opacity: 0.8;
 }
 
 /* BUTTON */
@@ -70,11 +106,20 @@ nav a:hover {
     cursor: pointer;
     font-weight: bold;
     border-radius: 8px;
+}
+
+/* ===== GLASS CARD ===== */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    margin: 20px;
     transition: 0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.05);
+.glass:hover {
+    transform: translateY(-8px);
 }
 
 /* SECTIONS */
@@ -98,16 +143,6 @@ input, select {
     border: none;
 }
 
-/* FADE ANIMATION */
-.fade-in {
-    animation: fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
 /* FOOTER */
 footer {
     text-align: center;
@@ -115,102 +150,112 @@ footer {
     opacity: 0.8;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-    <h2>Sunetra Halankar | Wealth Manager, NUVAMA</h2>
-    <nav>
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="logo">
+        <div class="title">Sunetra Halankar</div>
+        <div class="subtitle">Wealth Manager • NUVAMA</div>
+    </div>
+
+    <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
+        <button class="cta">Book Consultation</button>
     </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in">
+<!-- ===== HERO ===== -->
+<section class="hero">
     <h1>Sunetra Halankar</h1>
-    <h3>Nuvama Wealth Manager</h3>
-    <p>Building wealth. Securing futures. Creating financial confidence.</p>
+    <p>Wealth Manager at NUVAMA</p>
 
-    <img src="https://via.placeholder.com/150">
+    <img src="https://via.placeholder.com/150" alt="Sunetra Halankar">
 
     <br>
-    <button class="btn">Book Free Consultation</button>
+    <button class="btn">Start Your Wealth Journey</button>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="fade-in">
+<!-- ===== ABOUT ===== -->
+<section id="about">
     <div class="glass">
         <h2>About Me</h2>
         <p>
-            I specialize in wealth creation strategies, portfolio management, 
-            and long-term financial planning tailored to your goals.
+            I help individuals build long-term wealth through disciplined investing,
+            portfolio diversification, and personalized financial planning.
         </p>
     </div>
 </section>
 
-<!-- SERVICES -->
+<!-- ===== SERVICES ===== -->
 <section id="services">
-    <h2>My Services</h2>
+    <h2>Services</h2>
+
     <div class="cards">
         <div class="glass">
             <h3>Portfolio Management</h3>
-            <p>Custom investment strategies</p>
+            <p>Personalized investment strategies</p>
         </div>
 
         <div class="glass">
             <h3>Financial Planning</h3>
-            <p>Structured wealth building</p>
+            <p>Structured long-term wealth growth</p>
         </div>
 
         <div class="glass">
             <h3>Tax Optimization</h3>
-            <p>Maximize returns legally</p>
+            <p>Smart tax-saving strategies</p>
         </div>
     </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- ===== PRODUCTS ===== -->
 <section id="products">
     <h2>Investment Products</h2>
+
     <div class="cards">
         <div class="glass">
             <h3>Equity</h3>
-            <p>High-growth investments</p>
+            <p>High growth opportunities</p>
         </div>
 
         <div class="glass">
             <h3>Mutual Funds</h3>
-            <p>Diversified portfolios</p>
+            <p>Professionally managed portfolios</p>
         </div>
 
         <div class="glass">
             <h3>Fixed Income</h3>
-            <p>Stable returns</p>
+            <p>Stable low-risk returns</p>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ===== CONTACT ===== -->
 <section id="contact">
     <div class="glass">
-        <h2>Get in Touch</h2>
+        <h2>Contact Me</h2>
+
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Your Email"><br>
+
         <select>
             <option>Investment Advice</option>
             <option>Retirement Planning</option>
         </select><br>
+
         <button class="btn">Submit</button>
     </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-    <p>© 2026 Nuvama Wealth | Sunetra Halankar</p>
+    <p>© 2026 Sunetra Halankar | NUVAMA Wealth Management</p>
 </footer>
 
 </body>
